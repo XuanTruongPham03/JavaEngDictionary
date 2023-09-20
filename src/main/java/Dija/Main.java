@@ -1,10 +1,14 @@
 package Dija;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        DictionaryCommandline commandline = new DictionaryCommandline();
-        DictionaryManagement management = new DictionaryManagement();
-        commandline.dictionaryBasic(management);
-        commandline.runInteractiveSearch(management);
+        Scanner scanner = new Scanner(System.in);  
+        DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
+
+        dictionaryCommandline.run();
+
+        scanner.close();
     }
 }

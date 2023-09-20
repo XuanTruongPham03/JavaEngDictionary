@@ -1,64 +1,90 @@
 package Dija;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
-    public void showAllWords(Dictionary dictionary) {
-        ArrayList<Word> words = dictionary.getAllWords();
-        System.out.println("No | English | Vietnamese");
-        for (int i = 0; i < words.size(); i++) {
-            Word word = words.get(i);
-            System.out.println((i + 1) + " | " + word.getWordTarget() + " | " + word.getWordExplain());
+    private static final String[] MENU_OPTIONS = {
+        "Exit",
+        "Add",
+        "Remove",
+        "Update",
+        "Display",
+        "Lookup",
+        "Search",
+        "Game",
+        "Import from file",
+        "Export to file"
+    };
+
+    private DictionaryManagement dictionaryManagement;
+    private Scanner scanner;
+
+    public DictionaryCommandline() {
+        dictionaryManagement = new DictionaryManagement();
+        scanner = new Scanner(System.in);
+    }
+
+    public void run() {
+        int option = 0;
+        do {
+            displayMenu();
+            option = getOption();
+            handleOption(option);
+        } while (option != 0);
+    }
+
+    public void displayMenu() {
+        System.out.println("Menu:");
+        for (int i = 0; i < MENU_OPTIONS.length; i++) {
+            System.out.println(i + ". " + MENU_OPTIONS[i]);
         }
     }
 
-    public void dictionaryBasic(DictionaryManagement dictionaryManagement) {
-        Dictionary dictionary = new Dictionary();
-        dictionaryManagement.insertFromCommandline(dictionary);
-        showAllWords(dictionary);
+    public int getOption() {
+        int option = -1;
+        do {
+            System.out.print("Enter option: ");
+            option = scanner.nextInt();
+        } while (option < 0 || option >= MENU_OPTIONS.length);
+
+        return option;
     }
 
-    public void runInteractiveSearch(DictionaryManagement dictionaryManagement) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a prefix to search for words (or type 'exit' to quit): ");
-        while (true) {
-            String prefix = scanner.nextLine().trim();
-            if (prefix.equalsIgnoreCase("exit")) {
+    public void handleOption(int option) {
+        switch (option) {
+            case 0:
+                System.out.println("Exiting...");
+                System.exit(0);
+            case 1:
+                dictionaryManagement.addWord();
                 break;
-            }
-
-            ArrayList<Word> result = dictionaryManagement.dictionaryLookup(prefix);
-            if (result.isEmpty()) {
-                System.out.println("No words found.");
-            } else {
-                int pageSize = 10;
-                int currentPage = 0;
-                while (true) {
-                    int startIndex = currentPage * pageSize;
-                    int endIndex = Math.min(startIndex + pageSize, result.size());
-
-                    System.out.println("Words found (Page " + (currentPage + 1) + "):");
-                    for (int i = startIndex; i < endIndex; i++) {
-                        Word word = result.get(i);
-                        System.out.println((i + 1) + ". " + word.getWordTarget() + " - " + word.getWordExplain());
-                    }
-
-                    if (endIndex < result.size()) {
-                        System.out.println("Type 'next' to see more, or 'exit' to quit:");
-                        String choice = scanner.nextLine().trim();
-                        if (choice.equalsIgnoreCase("next")) {
-                            currentPage++;
-                        } else {
-                            break;
-                        }
-                    } else {
-                        break;
-                    }
-                }
-            }
+            case 2:
+                dictionaryManagement.removeWord();
+                break;
+            case 3:
+                dictionaryManagement.updateWord();
+                break;
+            case 4:
+                dictionaryManagement.displayWords();
+                break;
+            case 5:
+                dictionaryManagement.dictionaryLookup();
+                break;
+            case 6:
+                dictionaryManagement.dictionarySearcher();
+                break;
+            case 7:
+                dictionaryManagement.dictionaryGame();
+                break;
+            case 8:
+                dictionaryManagement.importFromFile();
+                break;
+            case 9:
+                dictionaryManagement.exportToFile();
+                break;
+            default:
+                System.out.println("Invalid option.");
+                break;
         }
-        System.out.println("Goodbye!");
-        scanner.close();
     }
 }
