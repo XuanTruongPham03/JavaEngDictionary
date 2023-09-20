@@ -6,6 +6,14 @@ public class Word {
     private String pronunciation;
     private String wordType;
 
+    /**
+     * Constructor
+     * 
+     * @param wordTarget
+     * @param pronunciation
+     * @param wordType
+     * @param wordExplain
+     */
     public Word(String wordTarget, String pronunciation, String wordType, String wordExplain) {
         this.wordTarget = wordTarget;
         this.wordExplain = wordExplain;
@@ -13,11 +21,20 @@ public class Word {
         this.wordType = wordType;
     }
 
+    /**
+     * Constructor but without pronunciation and wordType
+     * 
+     * @param wordTarget
+     * @param wordExplain
+     */
     public Word(String wordTarget, String wordExplain) {
         this.wordTarget = wordTarget;
         this.wordExplain = wordExplain;
     }
 
+    /**
+     * Default constructor
+     */
     public Word() {
         this.wordTarget = "";
         this.wordExplain = "";

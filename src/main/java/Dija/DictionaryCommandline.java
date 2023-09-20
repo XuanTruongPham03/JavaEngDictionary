@@ -1,8 +1,13 @@
 package Dija;
 
+import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
+    /** 
+     * Menu options
+     */
     private static final String[] MENU_OPTIONS = {
         "Exit",
         "Add",
@@ -19,11 +24,17 @@ public class DictionaryCommandline {
     private DictionaryManagement dictionaryManagement;
     private Scanner scanner;
 
+    /**
+     * Constructor
+     */
     public DictionaryCommandline() {
         dictionaryManagement = new DictionaryManagement();
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Run the program
+     */
     public void run() {
         int option = 0;
         do {
@@ -33,6 +44,9 @@ public class DictionaryCommandline {
         } while (option != 0);
     }
 
+    /**
+     * Display menu
+     */
     public void displayMenu() {
         System.out.println("Menu:");
         for (int i = 0; i < MENU_OPTIONS.length; i++) {
@@ -40,6 +54,11 @@ public class DictionaryCommandline {
         }
     }
 
+    /**
+     * Get option from user
+     * 
+     * @return option
+     */
     public int getOption() {
         int option = -1;
         do {
@@ -50,6 +69,11 @@ public class DictionaryCommandline {
         return option;
     }
 
+    /**
+     * Handle option
+     * 
+     * @param option
+     */
     public void handleOption(int option) {
         switch (option) {
             case 0:
@@ -87,4 +111,5 @@ public class DictionaryCommandline {
                 break;
         }
     }
+
 }
