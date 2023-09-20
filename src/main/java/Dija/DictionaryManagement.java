@@ -54,6 +54,8 @@ public class DictionaryManagement {
 
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
+
+                System.out.println(wordTarget + "was successfully added!\n");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -82,6 +84,8 @@ public class DictionaryManagement {
 
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
+
+                System.out.println(wordTarget + " was removed!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -131,6 +135,8 @@ public class DictionaryManagement {
 
         dictionary.removeWord(new Word(wordTarget, ""));
         dictionary.addWord(new Word(wordTarget, pronunciation, wordType, wordExplain));
+        System.out.println(wordTarget + "was updated:");
+        System.out.printf("%s - %s - %s - %s%n", wordTarget, pronunciation, wordType, wordExplain);
     }
 
     /**
