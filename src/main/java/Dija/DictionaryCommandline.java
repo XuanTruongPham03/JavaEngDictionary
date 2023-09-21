@@ -1,24 +1,24 @@
 package Dija;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
+//import java.util.ArrayList;
+//import java.util.Dictionary;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
-    /** 
+    /**
      * Menu options
      */
     private static final String[] MENU_OPTIONS = {
-        "Exit",
-        "Add",
-        "Remove",
-        "Update",
-        "Display",
-        "Lookup",
-        "Search",
-        "Game",
-        "Import from file",
-        "Export to file"
+            "Exit",
+            "Add",
+            "Remove",
+            "Update",
+            "Display",
+            "Lookup",
+            "Search",
+            "Game",
+            "Import from file",
+            "Export to file"
     };
 
     private DictionaryManagement dictionaryManagement;
@@ -61,10 +61,23 @@ public class DictionaryCommandline {
      */
     public int getOption() {
         int option = -1;
+        boolean validInput = false;
+
         do {
             System.out.print("Enter option: ");
-            option = scanner.nextInt();
-        } while (option < 0 || option >= MENU_OPTIONS.length);
+            String input = scanner.next();
+
+            try {
+                option = Integer.parseInt(input);
+                if (option >= 0 && option < MENU_OPTIONS.length) {
+                    validInput = true;
+                } else {
+                    System.out.println("Action not supported");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Action not supported");
+            }
+        } while (!validInput);
 
         return option;
     }
@@ -107,7 +120,7 @@ public class DictionaryCommandline {
                 dictionaryManagement.exportToFile();
                 break;
             default:
-                System.out.println("Invalid option.");
+                System.out.println("Action not supported");
                 break;
         }
     }
