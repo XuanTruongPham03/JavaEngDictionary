@@ -1,4 +1,4 @@
-package Dija;
+package Dija.Services.MySQLConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class MySqlConnectionBase {
     }
     
     public MySqlConnectionBase() {
-        // Khởi tạo kết nối đến cơ sở dữ liệu MySQL
+        // Init configuration
         String url = "jdbc:mysql://localhost/javaengdictionary";
         String user = "root";
         String password = "";
@@ -24,7 +24,7 @@ public class MySqlConnectionBase {
         }
     }
 
-    // Đảm bảo đóng kết nối khi cần thiết
+    // Make sure connection was closed
     public void closeConnection() {
         if (connection != null) {
             try {

@@ -1,4 +1,7 @@
-package Dija;
+package Dija.Model;
+
+import Dija.Model.Word;
+import Dija.Services.MySQLConnection.MySqlConnectionBase;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

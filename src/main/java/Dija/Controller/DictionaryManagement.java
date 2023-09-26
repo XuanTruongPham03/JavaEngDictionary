@@ -1,4 +1,8 @@
-package Dija;
+package Dija.Controller;
+
+import Dija.Model.Dictionary;
+import Dija.Model.Word;
+import Dija.Services.MySQLConnection.MySqlConnectionBase;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

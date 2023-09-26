@@ -1,4 +1,4 @@
-package Dija;
+package Dija.Model;
 
 public class Word {
     private String wordTarget;

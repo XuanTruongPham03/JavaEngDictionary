@@ -1,7 +1,8 @@
-package Dija;
+package Dija.Controller;
 
 //import java.util.ArrayList;
 //import java.util.Dictionary;
+
 import java.util.Scanner;
 
 public class DictionaryCommandline {
@@ -124,5 +125,4 @@ public class DictionaryCommandline {
                 break;
         }
     }
-
 }
