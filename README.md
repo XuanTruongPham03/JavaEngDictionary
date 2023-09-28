@@ -21,6 +21,12 @@
     </b>
 </div>
 
+## Members
+- 21020417 Pham Xuan Truong
+- 
+-
+-
+
 ## Table of Contents
 - [About](#about)
     - [Technical Usage](#technical-usage)
@@ -76,7 +82,10 @@ You can find the database schema in the [database.sql](database.sql) file.
 To install and run DIJA on your local machine, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/XuanTruongPham03/Java_Dictionary.git`
-2. Open the project in your Java IDE.
+2. Open Database Management System, create database named `javaengdictionary`.
+3. Import file [database.sql](database.sql) to database that was already created.
+3. Open the project in your Java IDE.
+4. Configure the [MySQLConnectionBase.java](src/main/java/Dija/Services/MySQLConnection/MySqlConnectionBase.java) file by changing the account and password to your MySQL account and password.
 3. Build and run the program.
 
 <div align="right">
