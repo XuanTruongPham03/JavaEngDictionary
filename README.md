@@ -5,7 +5,7 @@
 <!-- LOGO -->
 <div align="center">
     <a href="https://github.com/XuanTruongPham03/JavaEngDictionary">
-        <img src="src\main\resources\LOGO.png" width="200" alt="DIJA Logo">
+        <img src="src\main\java\resources\LOGO.png" width="200" alt="DIJA Logo">
     </a>
     <p>
     <h3>DIJA is an Object-Oriented Programming (OOP) project</h3>
