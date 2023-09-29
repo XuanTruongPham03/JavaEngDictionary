@@ -4,7 +4,7 @@
 # DIJA
 <!-- LOGO -->
 <div align="center">
-    <a href="https://github.com/XuanTruongPham03/Java_Dictionary">
+    <a href="https://github.com/XuanTruongPham03/javaengdictionary">
         <img src="src\main\resources\LOGO.png" width="200" alt="DIJA Logo">
     </a>
     <p>
