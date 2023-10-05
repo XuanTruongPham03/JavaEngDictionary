@@ -24,7 +24,7 @@
 ## Members
 - 21020417 Pham Xuan Truong
 - 19020088 Nguyen Tien Hung
--
+- 22026565 Nguyen Dang Doanh
 -
 
 ## Table of Contents
