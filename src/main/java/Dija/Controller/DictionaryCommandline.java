@@ -3,6 +3,7 @@ package Dija.Controller;
 //import java.util.ArrayList;
 //import java.util.Dictionary;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
@@ -36,7 +37,7 @@ public class DictionaryCommandline {
     /**
      * Run the program
      */
-    public void run() {
+    public void run() throws IOException {
         int option = 0;
         do {
             displayMenu();
@@ -88,7 +89,7 @@ public class DictionaryCommandline {
      * 
      * @param option
      */
-    public void handleOption(int option) {
+    public void handleOption(int option) throws IOException {
         switch (option) {
             case 0:
                 System.out.println("Exiting...");

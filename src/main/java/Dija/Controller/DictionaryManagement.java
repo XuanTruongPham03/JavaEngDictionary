@@ -3,7 +3,9 @@ package Dija.Controller;
 import Dija.Model.Dictionary;
 import Dija.Model.Word;
 import Dija.Services.MySQLConnection.MySqlConnectionBase;
+import com.mysql.jdbc.MySQLConnection;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -312,13 +314,13 @@ public class DictionaryManagement {
      * Import dictionary from file
      */
     public void importFromFile() {
-        
+
     }   
 
     /**
      * Export dictionary to file
      */
-    public void exportToFile() {
-
+    public void exportToFile() throws IOException {
+       
     }   
 }

@@ -7,16 +7,16 @@ import java.sql.SQLException;
 public class MySqlConnectionBase {
     protected Connection connection;
 
+    private final String url = "jdbc:mysql://localhost/javaengdictionary";
+    private final String user = "root";
+    private final String password = "";
+
     public Connection getConnection() {
         return connection;
     }
     
     public MySqlConnectionBase() {
         // Init configuration
-        String url = "jdbc:mysql://localhost/javaengdictionary";
-        String user = "root";
-        String password = "";
-
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
