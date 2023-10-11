@@ -22,7 +22,7 @@
 </div>
 
 ## Members
-- 21020417 Pham Xuan Truong
+- [21020417 Pham Xuan Truong](https://github.com/XuanTruongPham03) 
 - 19020088 Nguyen Tien Hung
 -
 -
