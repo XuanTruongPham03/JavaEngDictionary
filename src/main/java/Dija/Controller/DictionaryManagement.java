@@ -61,7 +61,7 @@ public class DictionaryManagement {
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
 
-                System.out.println(wordTarget + "was successfully added!\n");
+                System.out.println(wordTarget + " was successfully added!\n");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
