@@ -320,7 +320,7 @@ public class DictionaryManagement {
     /**
      * Export dictionary to file
      */
-    public void exportToFile() throws IOException {
+    public void exportToFile() {
        
     }   
 }

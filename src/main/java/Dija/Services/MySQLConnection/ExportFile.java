@@ -13,7 +13,7 @@ public class ExportFile {
   }
 
   public void exportToCSV(String filePath) {
-    // Export dữ liệu ra CSV 
+    // Export dữ liệu ra CSV
   }
 
   public void exportToTXT(String filePath) {
@@ -25,8 +25,8 @@ public class ExportFile {
   }
 
   public void exportToSQL(String filePath) {
-    
     // Export dữ liệu ra file SQL
+
   }
 
   public void exportFile() {
