@@ -24,7 +24,7 @@
 ## Members
 - [21020417 Pham Xuan Truong](https://github.com/XuanTruongPham03)
 - 19020088 Nguyen Tien Hung
--
+- [22026565 Nguyen Dang Doanh](https://github.com/donhnguyen28)
 -
 
 ## Table of Contents
