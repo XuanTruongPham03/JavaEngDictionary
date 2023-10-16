@@ -20,7 +20,8 @@ public class DictionaryCommandline {
             "Search",
             "Game",
             "Import from file",
-            "Export to file"
+            "Export to file",
+            "Translate Google"
     };
 
     private DictionaryManagement dictionaryManagement;
@@ -120,6 +121,9 @@ public class DictionaryCommandline {
                 break;
             case 9:
                 dictionaryManagement.exportToFile();
+                break;
+            case 10:
+                dictionaryManagement.translateAPI();
                 break;
             default:
                 System.out.println("Action not supported");

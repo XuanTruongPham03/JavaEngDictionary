@@ -322,5 +322,12 @@ public class DictionaryManagement {
      */
     public void exportToFile() {
        
-    }   
+    }
+
+    /**
+     * Translate word using Google Translate API.
+     */
+    public void translateAPI() {
+
+    }
 }
