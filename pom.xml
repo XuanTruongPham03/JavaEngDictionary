@@ -15,36 +15,49 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.40</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>16</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>16</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
             <version>16</version>
         </dependency>
+        <!-- Thư viện Google API -->
         <dependency>
-            <groupId>javazoom</groupId>
-            <artifactId>jlayer</artifactId>
-            <version>1.0.1</version> <!-- Phiên bản cụ thể của thư viện -->
+        <groupId>com.darkprograms.speech</groupId>
+        <artifactId>java-speech-api</artifactId>
+        <version>1.13.0-SNAPSHOT</version>
         </dependency>
+        <!-- Thư viện FLAC -->
         <dependency>
-            <groupId>com.darkprograms</groupId>
-            <artifactId>SpeechSynthesizer</artifactId>
-            <version>1.0.0</version> <!-- Phiên bản cụ thể của thư viện -->
+            <groupId>net.sourceforge.javaflacencoder</groupId>
+            <artifactId>java-flac-encoder</artifactId>
+            <version>0.3.7</version>
         </dependency>
-</dependencies>
+        <!-- Thư viện JSON -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20150729</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
