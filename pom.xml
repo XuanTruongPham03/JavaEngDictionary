@@ -35,5 +35,16 @@
             <artifactId>javafx-media</artifactId>
             <version>16</version>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>javazoom</groupId>
+            <artifactId>jlayer</artifactId>
+            <version>1.0.1</version> <!-- Phiên bản cụ thể của thư viện -->
+        </dependency>
+        <dependency>
+            <groupId>com.darkprograms</groupId>
+            <artifactId>SpeechSynthesizer</artifactId>
+            <version>1.0.0</version> <!-- Phiên bản cụ thể của thư viện -->
+        </dependency>
+</dependencies>
+
 </project>
