@@ -3,9 +3,7 @@ package Dija.Controller;
 import Dija.Model.Dictionary;
 import Dija.Model.Word;
 import Dija.Services.MySQLConnection.MySqlConnectionBase;
-import com.mysql.jdbc.MySQLConnection;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +22,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Add a word to dictionary database
+     * Add a word to dictionary database.
      */
     public void addWord() {
         System.out.println("Enter word target:");
@@ -141,7 +139,7 @@ public class DictionaryManagement {
 
         dictionary.removeWord(new Word(wordTarget, ""));
         dictionary.addWord(new Word(wordTarget, pronunciation, wordType, wordExplain));
-        System.out.println(wordTarget + "was updated:");
+        System.out.println(wordTarget + " was updated:");
         System.out.printf("%s - %s - %s - %s%n", wordTarget, pronunciation, wordType, wordExplain);
     }
 
@@ -307,8 +305,37 @@ public class DictionaryManagement {
      * Dictionary game
      */
     public void dictionaryGame() {
+        MySqlConnectionBase connectionBase = new MySqlConnectionBase();
+        String sql = "SELECT * FROM game ";
 
+        try {
+            PreparedStatement preparedStatement = connectionBase.getConnection().prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            int i = 1;
+
+            while (resultSet.next()) {
+
+                String question = resultSet.getString("question");
+                String a = resultSet.getString("a");
+                String b = resultSet.getString("b");
+                String c = resultSet.getString("c");
+                String d = resultSet.getString("d");
+
+
+                System.out.printf("%d. %s\n    A. %s     B. %s     C. %s     D. %s \n", i, question,a, b ,c, d);
+                i++;
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        connectionBase.closeConnection();
     }
+
 
     /**
      * Import dictionary from file
