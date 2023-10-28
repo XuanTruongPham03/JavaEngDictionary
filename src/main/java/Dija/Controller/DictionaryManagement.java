@@ -7,7 +7,6 @@ import Dija.Services.MySQLConnection.MySqlConnectionBase;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -317,32 +316,34 @@ public class DictionaryManagement {
             resultSet.last();
             int count = resultSet.getRow();
 
-            while( i < count + 1) {
+            while(i < count + 1) {
                 double randomDouble = Math.random();
-                randomDouble = randomDouble * 18 + 1;
+                randomDouble = randomDouble * 20 + 1;
                 int randomInt = (int) randomDouble;
-                resultSet.absolute(randomInt + 1);
+                resultSet.absolute(randomInt);
                 System.out.println("Question " + i + ": " + resultSet.getString(2) + "\n"
                         + "A." + resultSet.getString(3) + "     "
                         + "B." + resultSet.getString(4) + "     "
                         + "C." + resultSet.getString(5) + "     "
                         + "D." + resultSet.getString(6) + "     ") ;
+                System.out.print("Enter your answer: ");
                 String ans = scanner.nextLine();
-                if (ans.equals(resultSet.getString(7))) {
-                    System.out.print("Correct! \n\n");
-                    i++;
+                if (!ans.equals("a") && !ans.equals("b") && !ans.equals("c") && !ans.equals("d") ) {
+                    System.out.println("Invalid Answer! \n\n");
                 } else {
-                    System.out.print("Incorrect! \n\n");
-                    i++;
+                    if (ans.equals(resultSet.getString(7))) {
+                        System.out.print("Correct! \n\n");
+                    } else {
+                        System.out.print("Incorrect! \n\n");
+                    }
                 }
+                i++;
             }
-
             resultSet.close();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         connectionBase.closeConnection();
     }
 

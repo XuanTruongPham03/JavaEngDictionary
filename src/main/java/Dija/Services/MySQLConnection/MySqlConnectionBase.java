@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class MySqlConnectionBase {
     protected Connection connection;
 
-    private final String url = "jdbc:mysql://localhost/javaengdictionary";
+    private final String url = "jdbc:mysql://localhost/javaengdictonary";
     private final String user = "root";
     private final String password = "";
 
