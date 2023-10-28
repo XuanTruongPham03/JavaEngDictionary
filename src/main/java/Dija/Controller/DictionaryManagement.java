@@ -344,6 +344,7 @@ public class DictionaryManagement {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         connectionBase.closeConnection();
     }
 
