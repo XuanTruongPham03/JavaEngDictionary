@@ -314,17 +314,26 @@ public class DictionaryManagement {
 
             int i = 1;
 
-            while (resultSet.next()) {
-
-                String question = resultSet.getString("question");
-                String a = resultSet.getString("a");
-                String b = resultSet.getString("b");
-                String c = resultSet.getString("c");
-                String d = resultSet.getString("d");
-
-
-                System.out.printf("%d. %s\n    A. %s     B. %s     C. %s     D. %s \n", i, question,a, b ,c, d);
-                i++;
+            while( i < 21) {
+                double randomDouble = Math.random();
+                randomDouble = randomDouble * 18 + 1;
+                int randomInt = (int) randomDouble;
+                resultSet.absolute(randomInt + 1);
+                System.out.println(i + ". " + resultSet.getString(2) + "\n"
+                        + "A." + resultSet.getString(3) + "     "
+                        + "B." +resultSet.getString(4) + "     "
+                        + "C." +resultSet.getString(5) + "     "
+                        + "D." +resultSet.getString(6) + "     ") ;
+                String ans = scanner.nextLine();
+                if (ans.equals(resultSet.getString(7))) {
+                    System.out.print("Correct \n");
+                    randomInt = (int) randomDouble * 18 +1;
+                    i++;
+                } else {
+                    System.out.print("Incorrect \n");
+                    randomInt = (int) randomDouble * 18 +1;
+                    i++;
+                }
             }
 
             resultSet.close();
