@@ -312,20 +312,21 @@ public class DictionaryManagement {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             int i = 1;
+            int score = 0;
 
             resultSet.last();
             int count = resultSet.getRow();
 
             while(i < count + 1) {
                 double randomDouble = Math.random();
-                randomDouble = randomDouble * 20 + 1;
+                randomDouble = randomDouble * count + 1;
                 int randomInt = (int) randomDouble;
                 resultSet.absolute(randomInt);
                 System.out.println("Question " + i + ": " + resultSet.getString(2) + "\n"
-                        + "A." + resultSet.getString(3) + "     "
-                        + "B." + resultSet.getString(4) + "     "
-                        + "C." + resultSet.getString(5) + "     "
-                        + "D." + resultSet.getString(6) + "     ") ;
+                        + "A. " + resultSet.getString(3) + "     "
+                        + "B. " + resultSet.getString(4) + "     "
+                        + "C. " + resultSet.getString(5) + "     "
+                        + "D. " + resultSet.getString(6) + "     ");
                 System.out.print("Enter your answer: ");
                 String ans = scanner.nextLine();
                 if (!ans.equals("a") && !ans.equals("b") && !ans.equals("c") && !ans.equals("d") ) {
@@ -333,12 +334,14 @@ public class DictionaryManagement {
                 } else {
                     if (ans.equals(resultSet.getString(7))) {
                         System.out.print("Correct! \n\n");
+                        score++;
                     } else {
                         System.out.print("Incorrect! \n\n");
                     }
                 }
                 i++;
             }
+            System.out.println("Your score: " + score);
             resultSet.close();
             preparedStatement.close();
         } catch (SQLException e) {
