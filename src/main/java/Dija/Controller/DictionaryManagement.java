@@ -3,15 +3,16 @@ package Dija.Controller;
 import Dija.Model.Dictionary;
 import Dija.Model.Word;
 import Dija.Services.MySQLConnection.MySqlConnectionBase;
+<<<<<<< HEAD
 import com.mysql.jdbc.MySQLConnection;
 import Dija.Services.MySQLConnection.ExportFile;
 
+=======
+>>>>>>> 64fdb6531bdcbe5adceeca23c88e6da50cdd06b0
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -26,7 +27,7 @@ public class DictionaryManagement {
     }
 
     /**
-     * Add a word to dictionary database
+     * Add a word to dictionary database.
      */
     public void addWord() {
         System.out.println("Enter word target:");
@@ -143,7 +144,7 @@ public class DictionaryManagement {
 
         dictionary.removeWord(new Word(wordTarget, ""));
         dictionary.addWord(new Word(wordTarget, pronunciation, wordType, wordExplain));
-        System.out.println(wordTarget + "was updated:");
+        System.out.println(wordTarget + " was updated:");
         System.out.printf("%s - %s - %s - %s%n", wordTarget, pronunciation, wordType, wordExplain);
     }
 
@@ -309,8 +310,50 @@ public class DictionaryManagement {
      * Dictionary game
      */
     public void dictionaryGame() {
+        MySqlConnectionBase connectionBase = new MySqlConnectionBase();
+        String sql = "SELECT * FROM game ";
 
+        try {
+            PreparedStatement preparedStatement = connectionBase.getConnection().prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            int i = 1;
+
+            resultSet.last();
+            int count = resultSet.getRow();
+
+            while(i < count + 1) {
+                double randomDouble = Math.random();
+                randomDouble = randomDouble * 20 + 1;
+                int randomInt = (int) randomDouble;
+                resultSet.absolute(randomInt);
+                System.out.println("Question " + i + ": " + resultSet.getString(2) + "\n"
+                        + "A." + resultSet.getString(3) + "     "
+                        + "B." + resultSet.getString(4) + "     "
+                        + "C." + resultSet.getString(5) + "     "
+                        + "D." + resultSet.getString(6) + "     ") ;
+                System.out.print("Enter your answer: ");
+                String ans = scanner.nextLine();
+                if (!ans.equals("a") && !ans.equals("b") && !ans.equals("c") && !ans.equals("d") ) {
+                    System.out.println("Invalid Answer! \n\n");
+                } else {
+                    if (ans.equals(resultSet.getString(7))) {
+                        System.out.print("Correct! \n\n");
+                    } else {
+                        System.out.print("Incorrect! \n\n");
+                    }
+                }
+                i++;
+            }
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        connectionBase.closeConnection();
     }
+
 
     /**
      * Import dictionary from file
