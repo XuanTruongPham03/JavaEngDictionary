@@ -3,12 +3,10 @@ package Dija.Controller;
 import Dija.Model.Dictionary;
 import Dija.Model.Word;
 import Dija.Services.MySQLConnection.MySqlConnectionBase;
-<<<<<<< HEAD
+
 import com.mysql.jdbc.MySQLConnection;
 import Dija.Services.MySQLConnection.ExportFile;
 
-=======
->>>>>>> 64fdb6531bdcbe5adceeca23c88e6da50cdd06b0
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
