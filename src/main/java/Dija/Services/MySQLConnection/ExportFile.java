@@ -17,11 +17,38 @@ public class ExportFile {
   }
 
   public void exportToTXT(String filePath) {
-    // Export dữ liệu ra TXT
+    try {
+      Connection conn = connectionBase.getConnection();
+      Statement stmt = conn.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT * FROM dictionary"); // Tên bảng
+
+      BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+
+      while (rs.next()) {
+        // các cột của database
+        String wordTarget = rs.getString("word_target");
+        String wordExplain = rs.getString("word_explain");
+        String pronunciation = rs.getString("pronunciation");
+        String wordType = rs.getString("word_type");
+
+        // Ghi dữ liệu vào file txt theo định dạng mong muốn
+        String line = "Word: " + wordTarget + "\nExplanation: " + wordExplain + "\nPronunciation: " + pronunciation + "\nType: " + wordType + "\n";
+        writer.write(line);
+        writer.newLine();
+      }
+
+      writer.close();
+      stmt.close();
+      System.out.println("Data exported successfully to " + filePath);
+    } catch (SQLException | IOException e) {
+      e.printStackTrace();
+    }
   }
 
+
+
   public void exportToXLSX(String filePath) {
-    // Export dữ liệu ra Excel 
+    //  Export dữ liệu ra Excel
   }
 
   public void exportToSQL(String filePath) {

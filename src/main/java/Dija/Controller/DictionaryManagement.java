@@ -4,6 +4,8 @@ import Dija.Model.Dictionary;
 import Dija.Model.Word;
 import Dija.Services.MySQLConnection.MySqlConnectionBase;
 import com.mysql.jdbc.MySQLConnection;
+import Dija.Services.MySQLConnection.ExportFile;
+
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -321,8 +323,59 @@ public class DictionaryManagement {
      * Export dictionary to file
      */
     public void exportToFile() {
-       
+        System.out.println("Choose the file export format:");
+        System.out.println("1: SQL");
+        System.out.println("2: CSV");
+        System.out.println("3: TXT");
+        System.out.println("4: XLSX");
+
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+
+        scanner.nextLine();
+
+        System.out.println("Enter the destination file path (including the file name):");
+        String filePath = scanner.nextLine();
+
+        switch (choice) {
+            case 1:
+                exportSQLFile(filePath);
+                break;
+            case 2:
+                exportCSVFile(filePath);
+                break;
+            case 3:
+                exportTXTFile(filePath);
+                break;
+            case 4:
+                exportXLSXFile(filePath);
+                break;
+            default:
+                System.out.println("Invalid selection.");
+        }
     }
+
+    private void exportSQLFile(String filePath) {
+        ExportFile exportFile = new ExportFile();
+        exportFile.exportToSQL(filePath);
+    }
+
+    private void exportCSVFile(String filePath) {
+        ExportFile exportFile = new ExportFile();
+        exportFile.exportToCSV(filePath);
+    }
+
+    private void exportTXTFile(String filePath) {
+        ExportFile exportFile = new ExportFile();
+        exportFile.exportToTXT(filePath);
+    }
+
+    private void exportXLSXFile(String filePath) {
+        ExportFile exportFile = new ExportFile();
+        exportFile.exportToXLSX(filePath);
+    }
+
+
 
     /**
      * Translate word using Google Translate API.
