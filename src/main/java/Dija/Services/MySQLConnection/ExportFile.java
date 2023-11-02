@@ -16,14 +16,13 @@ public class ExportFile {
     // Export dữ liệu ra CSV
   }
 
-  public void exportToTXT(String filePath) {
+  public void exportToTXT(String filePath, String dbName) {
     try {
       Connection conn = connectionBase.getConnection();
       Statement stmt = conn.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM dictionary"); // Tên bảng
+      ResultSet rs = stmt.executeQuery("SELECT * FROM  " + dbName );
 
       BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
-
       while (rs.next()) {
         // các cột của database
         String wordTarget = rs.getString("word_target");
@@ -39,7 +38,6 @@ public class ExportFile {
 
       writer.close();
       stmt.close();
-      System.out.println("Data exported successfully to " + filePath);
     } catch (SQLException | IOException e) {
       e.printStackTrace();
     }
@@ -56,20 +54,7 @@ public class ExportFile {
 
   }
 
-  public void exportFile() {
-    Scanner scanner = new Scanner(System.in);  
-
-    System.out.print("Enter folder path: ");
-    String folderPath = scanner.nextLine();
-
-    System.out.print("Enter file extension (sql, csv, txt, xlsx): ");
-    String fileExt = scanner.nextLine();
-
-    System.out.print("Enter database name: ");
-    String dbName = scanner.nextLine(); 
-    String fileName = dbName + "." + fileExt;
-    String filePath = folderPath + "\\" + fileName;
-
+  public void exportFile(String filePath, String dbName, String fileExt) {
     switch(fileExt) {
       case "sql":
         exportToSQL(filePath);
@@ -78,7 +63,7 @@ public class ExportFile {
         exportToCSV(filePath);
         break;
       case "txt":
-        exportToTXT(filePath);
+        exportToTXT(filePath,dbName);
         break;
       case "xlsx":
         exportToXLSX(filePath);
@@ -86,8 +71,9 @@ public class ExportFile {
       default:
         System.out.println("Invalid file extension");
     }
-
-    scanner.close();
+    System.out.println("Data exported successfully to " + filePath);
   }
+
+
 
 }

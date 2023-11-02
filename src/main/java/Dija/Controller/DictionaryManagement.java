@@ -367,57 +367,20 @@ public class DictionaryManagement {
      * Export dictionary to file
      */
     public void exportToFile() {
-        System.out.println("Choose the file export format:");
-        System.out.println("1: SQL");
-        System.out.println("2: CSV");
-        System.out.println("3: TXT");
-        System.out.println("4: XLSX");
+        System.out.print("Enter folder path: ");
+        String folderPath = scanner.nextLine();
 
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        System.out.print("Enter file name (without extension): ");
+        String fileName = scanner.nextLine();
 
-        scanner.nextLine();
+        String fileExt = "txt";
 
-        System.out.println("Enter the destination file path (including the file name):");
-        String filePath = scanner.nextLine();
+        String filePath = folderPath + "\\" + fileName + "." + fileExt;
 
-        switch (choice) {
-            case 1:
-                exportSQLFile(filePath);
-                break;
-            case 2:
-                exportCSVFile(filePath);
-                break;
-            case 3:
-                exportTXTFile(filePath);
-                break;
-            case 4:
-                exportXLSXFile(filePath);
-                break;
-            default:
-                System.out.println("Invalid selection.");
-        }
-    }
-
-    private void exportSQLFile(String filePath) {
         ExportFile exportFile = new ExportFile();
-        exportFile.exportToSQL(filePath);
+        exportFile.exportFile(filePath,"dictionary",fileExt);
     }
 
-    private void exportCSVFile(String filePath) {
-        ExportFile exportFile = new ExportFile();
-        exportFile.exportToCSV(filePath);
-    }
-
-    private void exportTXTFile(String filePath) {
-        ExportFile exportFile = new ExportFile();
-        exportFile.exportToTXT(filePath);
-    }
-
-    private void exportXLSXFile(String filePath) {
-        ExportFile exportFile = new ExportFile();
-        exportFile.exportToXLSX(filePath);
-    }
 
 
 
