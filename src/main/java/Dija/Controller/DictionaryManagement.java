@@ -6,7 +6,7 @@ import Dija.Services.MySQLConnection.MySqlConnectionBase;
 
 import com.mysql.jdbc.MySQLConnection;
 import Dija.Services.MySQLConnection.ExportFile;
-
+import Dija.Services.MySQLConnection.ImportFile;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -360,7 +360,8 @@ public class DictionaryManagement {
      * Import dictionary from file
      */
     public void importFromFile() {
-
+        ImportFile importFile = new ImportFile();
+        importFile.importFile();
     }   
 
     /**

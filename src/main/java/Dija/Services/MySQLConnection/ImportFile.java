@@ -11,6 +11,11 @@ public class ImportFile {
     this.connectionBase = new MySqlConnectionBase();
   }
 
+  /**
+   * Import data from URL.
+   *
+   * @param url URL to import data from.
+   */
   public void importFromUrl(String url) {
     try {
       Connection conn = connectionBase.getConnection();
@@ -22,6 +27,11 @@ public class ImportFile {
     }
   }
 
+  /**
+   * Import data from file.
+   *
+   * @param filePath File path to import data from.
+   */
   public void importFromFile(String filePath) {
     try {
       Connection conn = connectionBase.getConnection();
@@ -33,6 +43,9 @@ public class ImportFile {
     } 
   }
 
+  /**
+   * Import data from file or URL.
+   */
   public void importFile() {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Enter source url/file path: ");
@@ -46,5 +59,4 @@ public class ImportFile {
 
     scanner.close();
   }
-
 }
