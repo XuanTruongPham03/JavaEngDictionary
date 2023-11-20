@@ -89,7 +89,7 @@ git clone https://github.com/XuanTruongPham03/Java_Dictionary.git
 ```shell
 CREATE DATABASE javaengdictionary;
 ```
-3. Import file [database.sql](database.sql) to database that was already created.
+3. Import file [game.sql](game.sql), [database.sql](database.sql) to database that was already created.
 3. Open the project in your Java IDE.
 4. Configure the [MySQLConnectionBase.java](src/main/java/Dija/Services/MySQLConnection/MySqlConnectionBase.java) file by changing the account and password to your MySQL account and password.
 3. Build and run the program.

@@ -110,7 +110,7 @@ INSERT INTO `game` (`id`, `question`, `a`, `b`, `c`, `d`, `answer`) VALUES
 (66, 'The mirror was ____ broken.', 'accidental', 'by accident', 'accidentally', 'determination ', 'c'),
 (67, 'It is very difficult to ____ the exact meaning of an idiom in a foreign language.', 'exert', 'convert', 'transfer', 'convey ', 'd'),
 (68, 'No matter how angry he was, he would never ____ to violence.', 'exert', 'resolve', 'resort', 'recourse', 'c'),
-(69, 'It never ____ my head that such a teưible thing would happen.', 'struck', 'dawned', 'occurred', 'entered ', 'd'),
+(69, 'It never ____ my head that such a terrible thing would happen.', 'struck', 'dawned', 'occurred', 'entered ', 'd'),
 (70, 'Dogs make very ____ pets. They will always stay by your side.', 'mental', 'private', 'loyal', 'digital', 'c');
 
 --

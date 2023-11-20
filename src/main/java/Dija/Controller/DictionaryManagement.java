@@ -4,7 +4,6 @@ import Dija.Model.Dictionary;
 import Dija.Model.Word;
 import Dija.Services.MySQLConnection.MySqlConnectionBase;
 
-import com.mysql.jdbc.MySQLConnection;
 import Dija.Services.MySQLConnection.ExportFile;
 import Dija.Services.MySQLConnection.ImportFile;
 
@@ -16,7 +15,7 @@ import java.util.Scanner;
 public class DictionaryManagement {
     private Dictionary dictionary;
     private Scanner scanner;
-    private int displayPageSize = 50;
+    private int displayPageSize = 10;
     private int searchPageSize = 10;
 
     public DictionaryManagement() {
@@ -355,7 +354,6 @@ public class DictionaryManagement {
         connectionBase.closeConnection();
     }
 
-
     /**
      * Import dictionary from file
      */
@@ -381,9 +379,6 @@ public class DictionaryManagement {
         ExportFile exportFile = new ExportFile();
         exportFile.exportFile(filePath,"dictionary",fileExt);
     }
-
-
-
 
     /**
      * Translate word using Google Translate API.
