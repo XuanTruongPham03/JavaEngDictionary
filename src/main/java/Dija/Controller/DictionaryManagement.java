@@ -14,6 +14,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import Dija.Services.TranslateAPI.*;
+
+import javafx.scene.media.AudioClip;
 public class DictionaryManagement {
     private Dictionary dictionary;
     private Scanner scanner;
@@ -339,10 +342,81 @@ public class DictionaryManagement {
         exportFile.exportFile(filePath,"dictionary",fileExt);
     }
 
+    private Speaker speaker;
+    private Speaker.SpeakerData speakerData;
+
     /**
      * Translate word using Google Translate API.
      */
     public void translateAPI() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Enter the destination language (default: Vietnamese): ");
+        String destLang = scanner.nextLine();
+
+        System.out.print("Enter the source language (default: English): ");
+        String srcLang = scanner.nextLine();
+
+        destLang = destLang.isEmpty() ? "vi" : destLang;
+        srcLang = srcLang.isEmpty() ? "en" : srcLang;
+
+        System.out.print("Enter the word to translate: ");
+        String word = scanner.nextLine();
+
+        if (word.isEmpty()) {
+            System.out.println("Please enter a word to translate.");
+            return;
+        }
+
+        GGTranAPI ggTranAPI = new GGTranAPI();
+        Translator.TranslatedData result = ggTranAPI.translate(
+                            Translator.LanguageCode.valueOf(srcLang.toUpperCase()),
+                            Translator.LanguageCode.valueOf(destLang.toUpperCase()),
+                            word);
+
+        System.out.println("Text: " + result.getText());
+        System.out.println("Translation: " + result.getTranslated());
+        System.out.println("Source Language: " + result.getSrc());
+        System.out.println("Destination Language: " + result.getDest());
+
+        System.out.println("Press 's' to swap, 'l' to listen");
+        char choice = scanner.nextLine().charAt(0);
+
+        switch (choice) {
+            case 's':
+                String temp = srcLang;
+                srcLang = destLang;
+                destLang = temp;
+                result = ggTranAPI.translate(
+                        Translator.LanguageCode.valueOf(srcLang.toUpperCase()),
+                        Translator.LanguageCode.valueOf(destLang.toUpperCase()),
+                        word);
+
+                System.out.println("Text: " + result.getText());
+                System.out.println("Translation: " + result.getTranslated());
+                System.out.println("Source Language: " + result.getSrc());
+                System.out.println("Destination Language: " + result.getDest());
+                break;
+            case 'l':
+                read(word);
+        }
+    }
+    public void read(String word){
+        String data = new LabanSpeakerAPI().speak(word).getData();
+        PlaySound playSound = new PlaySound(data);
+        playSound.start();
+    }
+    private class PlaySound extends Thread {
+        String url;
+
+        public PlaySound(String url) {
+            this.url = url;
+        }
+
+        @Override
+        public void run() {
+            AudioClip audioClip = new AudioClip(url);
+            audioClip.play();
+        }
     }
 }
