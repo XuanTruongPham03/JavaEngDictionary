@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="558.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dija.Controller.add_update_delateWord">
+   <children>
+      <TextField fx:id="wordTargetField" layoutX="154.0" layoutY="204.0" prefHeight="36.0" prefWidth="392.0" />
+      <TextField fx:id="wordExplainField" layoutX="154.0" layoutY="265.0" prefHeight="36.0" prefWidth="392.0" />
+      <Label layoutX="30.0" layoutY="204.0" prefHeight="36.0" prefWidth="76.0" text="Target">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="30.0" layoutY="262.0" prefHeight="42.0" prefWidth="98.0" text="Phonetics">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button fx:id="clearBtn" layoutX="154.0" layoutY="382.0" mnemonicParsing="false" onAction="#Clear" prefHeight="36.0" prefWidth="61.0" text="Clear" />
+      <Button fx:id="addBtn" layoutX="279.0" layoutY="382.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="54.0" text="Add" />
+      <Button fx:id="updateBtn" layoutX="382.0" layoutY="383.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" text="Update" />
+      <ComboBox fx:id="wordTypeField" layoutX="154.0" layoutY="314.0" prefHeight="27.0" prefWidth="138.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Danh từ" />
+               <String fx:value="Động từ" />
+               <String fx:value="Tính từ" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <TextField fx:id="pronunciationField" layoutX="375.0" layoutY="314.0" prefHeight="27.0" prefWidth="170.0" />
+      <Button fx:id="delateBtn" layoutX="481.0" layoutY="383.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" text="Delate" />
+   </children>
+</AnchorPane>

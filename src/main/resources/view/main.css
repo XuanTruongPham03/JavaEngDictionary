@@ -1,0 +1,212 @@
+@font-face {
+    src: url('../font/Roboto-ThinItalic.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-Thin.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-MediumItalic.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-Medium.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-LightItalic.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-Light.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-Italic.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-BoldItalic.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-Bold.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-BlackItalic.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-Black.ttf');
+}
+@font-face {
+    src: url('../font/Roboto-Regular.ttf');
+}
+
+.root {
+    -fx-font-family: 'Roboto';
+    -fx-background-color: #636e72;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+    -fx-border-insets: 0;
+}
+
+.scroll-bar {
+    -fx-background-radius: 10;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color :transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+
+
+.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 0.0 10.0 0.0;
+
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color :derive(#4D4C4F,10.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+#menu-box {
+    -fx-background-color: #2d3436;
+}
+
+.menu-btn {
+    -fx-min-width: 0;
+    -fx-max-width: Infinity;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-color: transparent;
+    -fx-font-size: 20;
+    -fx-fill-width: true;
+    -fx-text-fill: #b2bec3;
+    -fx-graphic-text-gap: 12;
+}
+
+.menu-btn:hover {
+    -fx-background-color: derive(#000000, 5%);
+    -fx-text-fill: #dfe6e9;
+    /*-fx-border-color: derive(#000000, 7%);*/
+}
+
+.menu-btn .ikonli-font-icon {
+    -fx-icon-size: 36;
+    -fx-icon-color: #b2bec3;
+}
+
+.button {
+    -fx-cursor: HAND;
+}
+
+.menu-box {
+
+}
+
+.tooltip {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.icon-button {
+    -fx-min-width: 0;
+    -fx-max-width: Infinity;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-color: transparent;
+    -fx-font-size: 20;
+    -fx-fill-width: true;
+    -fx-text-fill: #b2bec3;
+    -fx-graphic-text-gap: 12;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-insets: 0;
+    -fx-border-radius: 10;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10;
+    -fx-focus-traversable: false;
+}
+
+.icon-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-color: rgba(255, 255, 255, 0.07);
+}
+
+.icon-button .ikonli-font-icon {
+    -fx-icon-size: 20;
+    -fx-icon-color: #b2bec3;
+}
+
+#intro {
+    -fx-background-color: transparent;
+    -fx-padding: 20 40 0 20;
+}
+
+#intro .label {
+    -fx-font-size: 18;
+    -fx-text-fill: #2d3436;
+    -fx-padding: 0 0 0 10;
+    -fx-wrap-text: true;
+}
+
+#intro .li {
+    -fx-padding: 0 0 0 20;
+}
+
+/* This css should belong to the searchbar.*/
+/* However, i don't know why css on context menu only
+ works if the css is load to the scene(this file).
+ Just a workaround.*/
+.context-menu {
+    -fx-background-color: #2d3436;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.context-menu * {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.context-menu .label {
+    -fx-text-fill: #fff;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: #636e72;
+}
+
+.context-menu .menu-item:hover {
+    /*-fx-background-color: #636e72;*/
+}
