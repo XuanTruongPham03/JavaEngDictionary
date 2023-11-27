@@ -1,17 +1,22 @@
 package Dija;
 
-import Dija.Controller.DictionaryCommandline;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.Scanner;
+public class Main extends Application {
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-        dictionaryCommandline.run();
-
-        scanner.close();
+    @Override
+    public void start(final Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

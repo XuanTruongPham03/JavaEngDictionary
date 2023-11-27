@@ -12,10 +12,13 @@ import Dija.Services.Game.Game1;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import Dija.Services.TranslateAPI.*;
 
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.media.AudioClip;
 public class DictionaryManagement {
     private Dictionary dictionary;
@@ -31,25 +34,25 @@ public class DictionaryManagement {
     /**
      * Add a word to dictionary database.
      */
-    public void addWord() {
-        System.out.println("Enter word target:");
-        String wordTarget = scanner.nextLine();
-
+    public void addWord(String wordTarget,String wordExplain, String pronunciation, String wordType) {
+//        System.out.println("Enter word target:");
+//        String wordTarget = scanner.nextLine();
+//
         if (dictionary.isWordExistInDatabase(wordTarget)) {
             System.out.println("Word target already exist in database");
             return;
         }
+//
+//        System.out.println("Enter word explain:");
+//        String wordExplain = scanner.nextLine();
+//
+//        System.out.println("Enter word pronunciation:");
+//        String pronunciation = scanner.nextLine();
+//
+//        System.out.println("Enter word type:");
+//        String wordType = scanner.nextLine();
 
-        System.out.println("Enter word explain:");
-        String wordExplain = scanner.nextLine();
-
-        System.out.println("Enter word pronunciation:");
-        String pronunciation = scanner.nextLine();
-
-        System.out.println("Enter word type:");
-        String wordType = scanner.nextLine();
-
-        Word word = new Word(wordTarget, pronunciation, wordType, wordExplain);
+        Word word = new Word(wordTarget,wordExplain, pronunciation,wordType);
         dictionary.addWord(word);
 
         MySqlConnectionBase connectionBase = new MySqlConnectionBase();
@@ -76,9 +79,9 @@ public class DictionaryManagement {
     /**
      * Remove a word from dictionary database
      */
-    public void removeWord() {
-        System.out.println("Enter word target:");
-        String wordTarget = scanner.nextLine();
+    public void removeWord(String wordTarget) {
+        //System.out.println("Enter word target:");
+        //String wordTarget = scanner.nextLine();
 
         if (!dictionary.isWordExistInDatabase(wordTarget)) {
             System.out.println("Word target does not exist in database");
@@ -108,23 +111,23 @@ public class DictionaryManagement {
     /**
      * Update a word in dictionary database
      */
-    public void updateWord() {
-        System.out.println("Enter word target:");
-        String wordTarget = scanner.nextLine();
+    public void updateWord(String wordTarget,String wordExplain, String pronunciation, String wordType) {
+//        System.out.println("Enter word target:");
+//        String wordTarget = scanner.nextLine();
 
         if (!dictionary.isWordExistInDatabase(wordTarget)) {
             System.out.println("Word target does not exist in database");
             return;
         }
 
-        System.out.println("Enter word explain:");
-        String wordExplain = scanner.nextLine();
-
-        System.out.println("Enter word pronunciation:");
-        String pronunciation = scanner.nextLine();
-
-        System.out.println("Enter word type:");
-        String wordType = scanner.nextLine();
+//        System.out.println("Enter word explain:");
+//        String wordExplain = scanner.nextLine();
+//
+//        System.out.println("Enter word pronunciation:");
+//        String pronunciation = scanner.nextLine();
+//
+//        System.out.println("Enter word type:");
+//        String wordType = scanner.nextLine();
 
         MySqlConnectionBase connectionBase = new MySqlConnectionBase();
         String sql = "UPDATE dictionary SET word_explain = ?, pronunciation = ?, word_type = ? WHERE word_target = ?";
@@ -153,7 +156,7 @@ public class DictionaryManagement {
     /**
      * Display all words from the database with pagination
      */
-    public void displayWords() {
+    public  void displayWords() {
         MySqlConnectionBase connectionBase = new MySqlConnectionBase();
         String sql = "SELECT * FROM dictionary";
 
@@ -195,6 +198,38 @@ public class DictionaryManagement {
 
         connectionBase.closeConnection();
     }
+
+    public List<String> getWordsAsStringList() {
+        List<String> wordList = new ArrayList<>();
+        MySqlConnectionBase connectionBase = new MySqlConnectionBase();
+        String sql = "SELECT * FROM dictionary";
+
+        try {
+            PreparedStatement preparedStatement = connectionBase.getConnection().prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String wordTarget = resultSet.getString("word_target");
+                String pronunciation = resultSet.getString("pronunciation");
+                String wordType = resultSet.getString("word_type");
+                String wordExplain = resultSet.getString("word_explain");
+
+                // Định dạng từ theo yêu cầu và thêm vào danh sách
+                String formattedWord = String.format("%s - %s - %s - %s", wordTarget, pronunciation, wordType, wordExplain);
+                wordList.add(formattedWord);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        connectionBase.closeConnection();
+
+        return wordList;
+    }
+
 
     /**
      * Lookup a word in dictionary database
@@ -406,6 +441,8 @@ public class DictionaryManagement {
         PlaySound playSound = new PlaySound(data);
         playSound.start();
     }
+
+
     private class PlaySound extends Thread {
         String url;
 

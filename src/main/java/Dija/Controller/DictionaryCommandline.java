@@ -95,15 +95,15 @@ public class DictionaryCommandline {
             case 0:
                 System.out.println("Exiting...");
                 System.exit(0);
-            case 1:
+/*            case 1:
                 dictionaryManagement.addWord();
-                break;
-            case 2:
+                break;*/
+           /* case 2:
                 dictionaryManagement.removeWord();
-                break;
-            case 3:
+                break;*/
+            /*case 3:
                 dictionaryManagement.updateWord();
-                break;
+                break;*/
             case 4:
                 dictionaryManagement.displayWords();
                 break;
