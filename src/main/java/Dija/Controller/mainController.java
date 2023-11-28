@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class mainController implements Initializable {
     @FXML
-    private Button closeBtn, add_update_delateWord,display_lookup_searh, gameBtn;
+    private Button closeBtn,  gameBtn, add_update_delateWord,display_lookup_searh;
     @FXML
     private AnchorPane container;
     @FXML
