@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class mainController implements Initializable {
     @FXML
-    private Button searchBtn, closeBtn, add_update_delateWord,display_lookup_searh;
+    private Button closeBtn, add_update_delateWord,display_lookup_searh, gameBtn;
     @FXML
     private AnchorPane container;
     @FXML
@@ -33,7 +33,7 @@ public class mainController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize( URL url, ResourceBundle resourceBundle) {
         tooltip1.setShowDelay(Duration.seconds(0.3));
         tooltip2.setShowDelay(Duration.seconds(0.3));
         tooltip3.setShowDelay(Duration.seconds(0.3));
@@ -74,7 +74,13 @@ public class mainController implements Initializable {
                 throw new RuntimeException(ex);
             }
         });
-
+        gameBtn.setOnMouseClicked(e -> {
+            try {
+                showComponent("/view/game.fxml");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     public void add_update_delateWord(MouseEvent mouseEvent) {
@@ -84,5 +90,6 @@ public class mainController implements Initializable {
     public void display_lookup_searh(MouseEvent mouseEvent){
 
     }
+
 
 }

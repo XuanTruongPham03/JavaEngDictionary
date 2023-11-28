@@ -1,0 +1,27 @@
+.root{
+    -fx-background-color: #FCAEAE;
+    -fx-background-radius: 3;
+    -fx-border-radius: 5;
+}
+.container{
+    -fx-background-size: cover;
+    -fx-border-radius: 5;
+}
+
+.dicTitle{
+    -fx-background-color: #FF6666;
+    -fx-font-weight: bold;
+    -fx-font-size: 32;
+}
+
+.feature{
+    -fx-background-color: #FF6666;
+    -fx-font-weight: none;
+    -fx-font-size: 18;
+}
+
+.feature1{
+    -fx-background-color: #FF6666;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
