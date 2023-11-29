@@ -34,6 +34,6 @@
          </items>
       </ComboBox>
       <TextField fx:id="pronunciationField" layoutX="375.0" layoutY="314.0" prefHeight="27.0" prefWidth="170.0" />
-      <Button fx:id="delateBtn" layoutX="481.0" layoutY="383.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" text="Delate" />
+      <Button fx:id="delateBtn" layoutX="481.0" layoutY="383.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" text="Delete" />
    </children>
 </AnchorPane>

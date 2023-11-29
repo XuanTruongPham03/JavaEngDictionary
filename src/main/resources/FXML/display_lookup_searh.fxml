@@ -10,7 +10,7 @@
    <children>
       <TextField fx:id="taskSearh" layoutX="65.0" layoutY="68.0" prefHeight="38.0" prefWidth="334.0" />
       <Button fx:id="displayBtn" layoutX="421.0" layoutY="400.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" text="Display" />
-      <Button fx:id="searhBtn" layoutX="532.0" layoutY="400.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" text="Searh" />
+      <Button fx:id="searhBtn" layoutX="532.0" layoutY="400.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" text="Search" />
       <ListView fx:id="homeListView" layoutX="65.0" layoutY="123.0" prefHeight="242.0" prefWidth="334.0" />
       <Button fx:id="VoiceBtn" layoutX="14.0" layoutY="68.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" text="Voice" />
       <TextArea fx:id="searhresult" layoutX="421.0" layoutY="68.0" prefHeight="298.0" prefWidth="193.0" />
