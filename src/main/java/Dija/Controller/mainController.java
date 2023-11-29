@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class mainController implements Initializable {
     @FXML
-    private Button closeBtn, gameBtn, add_update_delateWord,display_lookup_searh;
+    private Button closeBtn, gameBtn, add_update_delateWord,display_lookup_searh,Google_Translate;
     @FXML
     private AnchorPane container;
     @FXML
@@ -75,6 +75,13 @@ public class mainController implements Initializable {
                 throw new RuntimeException(ex);
             }
         });
+        Google_Translate.setOnMouseClicked(e -> {
+            try {
+                showComponent("/FXML/Google_Translate.fxml");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     public void add_update_delateWord(MouseEvent mouseEvent) {
@@ -82,6 +89,9 @@ public class mainController implements Initializable {
     }
 
     public void display_lookup_searh(MouseEvent mouseEvent){
+
+    }
+    public void Google_Translate(MouseEvent mouseEvent){
 
     }
 

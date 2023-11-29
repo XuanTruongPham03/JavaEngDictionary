@@ -1,4 +1,5 @@
 package Dija.Controller;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,6 +33,10 @@ public class display_lookup_searh extends AnchorPane implements Initializable {
     private Button VoiceBtn;
 
     @FXML
+    private TextArea searhresult;
+
+
+    @FXML
     private ObservableList<String> searchResultsList = FXCollections.observableArrayList();
 
 
@@ -60,29 +65,49 @@ public class display_lookup_searh extends AnchorPane implements Initializable {
             }
         });
 
-        homeListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (newValue != null) {
-                    taskSearh.setText(newValue.split(" - ")[0]); // Lấy phần tiếng Anh của từ
-                    displayHandler();
+//        homeListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+//            @Override
+//            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//                if (newValue != null) {
+//                    taskSearh.setText(newValue.split(" - ")[0]); // Lấy phần tiếng Anh của từ
+//                   displayHandler();
+//                }
+//            }
+//        });
+        taskSearh.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.DOWN) {
+                homeListView.requestFocus();
+                int itemCount = homeListView.getItems().size();
+                int selectedIndex = homeListView.getSelectionModel().getSelectedIndex();
+                System.out.println(selectedIndex);
+                if (itemCount > 0 && selectedIndex < itemCount - 1) {
+                    homeListView.getSelectionModel().select(selectedIndex + 1);
                 }
-            }
-        });
-
-        homeListView.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                String selectedItem = homeListView.getSelectionModel().getSelectedItem();
-                if (selectedItem != null) {
-                    taskSearh.setText(selectedItem.split(" - ")[0]); // Lấy phần tiếng Anh của từ
-                    displayHandler();
+                event.consume();
+            } else if (event.getCode() == KeyCode.UP) {
+                homeListView.requestFocus();
+                int selectedIndex = homeListView.getSelectionModel().getSelectedIndex();
+                System.out.println(selectedIndex);
+                if (selectedIndex > 0) {
+                    homeListView.getSelectionModel().select(selectedIndex - 1);
                 }
                 event.consume();
             }
         });
 
+        homeListView.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                String selectedItem = (String) homeListView.getSelectionModel().getSelectedItem();
+                if (selectedItem != null) {
+                    Platform.runLater(() -> {
+                        this.taskSearh.setText(selectedItem);
+                        this.taskSearh.requestFocus();
+                    });
+                }
 
-
+                event.consume();
+            }
+        });
 
 
     }
@@ -93,11 +118,16 @@ public class display_lookup_searh extends AnchorPane implements Initializable {
     }
 
     public void SearhHandler() {
+     /*   String searchText = taskSearh.getText().trim();
+        if (!searchText.isEmpty()) {
+            String searchResults = dictionaryManagement.dictionarySearch(searchText);
+            System.out.println(searchResults + "-------------" + searchText );
+                    this.taskSearh.setText(searchResults);
+        }*/
         String searchText = taskSearh.getText().trim();
         if (!searchText.isEmpty()) {
-            List<String> searchResults = dictionaryManagement.dictionarySearcher(searchText);
-            homeListView.getItems().clear();
-            homeListView.getItems().addAll(searchResults);
+            String searchResults = dictionaryManagement.dictionarySearch(searchText);
+            searhresult.setText(searchResults); // Đặt kết quả vào TextArea
         }
     }
 
@@ -109,15 +139,4 @@ public class display_lookup_searh extends AnchorPane implements Initializable {
             dictionaryManagement.read(currentWord);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 }

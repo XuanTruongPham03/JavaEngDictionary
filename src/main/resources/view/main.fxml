@@ -33,7 +33,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="../searh.png" />
+                  <Image url="@../searh.png" />
                </image>
             </ImageView>
          </graphic>
@@ -58,6 +58,21 @@
             <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Google_Translate" layoutX="21.0" layoutY="203.0" mnemonicParsing="false">
+         <tooltip>
+            <Tooltip fx:id="tooltip11" text="Name1" />
+         </tooltip>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../translate.png" />
                </image>
             </ImageView>
          </graphic>

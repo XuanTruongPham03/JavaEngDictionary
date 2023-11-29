@@ -278,7 +278,7 @@ public class DictionaryManagement {
     public List<String> dictionarySearcher(String keyword) {
         List<String> searchResults = new ArrayList<>();
         MySqlConnectionBase connectionBase = new MySqlConnectionBase();
-        String sql = "SELECT word_target, word_explain FROM dictionary WHERE word_target LIKE ?";
+        String sql = "SELECT word_target FROM dictionary WHERE word_target like ?";
 
         try {
             PreparedStatement preparedStatement = connectionBase.getConnection().prepareStatement(sql);
@@ -287,8 +287,9 @@ public class DictionaryManagement {
 
             while (resultSet.next()) {
                 String wordTarget = resultSet.getString("word_target");
-                String wordExplain = resultSet.getString("word_explain");
-                searchResults.add(wordTarget + " - " + wordExplain); // định dạng kết quả
+//                String wordExplain = resultSet.getString("word_explain");
+//                searchResults.add(wordTarget  + " - " + wordExplain); // định dạng kết quả
+                searchResults.add(wordTarget );
             }
             resultSet.close();
             preparedStatement.close();
@@ -298,6 +299,42 @@ public class DictionaryManagement {
             connectionBase.closeConnection();
         }
         return searchResults;
+    }
+    public String dictionarySearch(String keyword) {
+        String searchResult = ""; // Khởi tạo searchResult là một chuỗi trống
+        MySqlConnectionBase connectionBase = new MySqlConnectionBase();
+        //String sql = "SELECT word_target, word_explain FROM dictionary WHERE word_target = ?";
+        String sql = "SELECT word_target, pronunciation,word_type, word_explain FROM dictionary WHERE word_target = ?";
+
+        try {
+            PreparedStatement preparedStatement = connectionBase.getConnection().prepareStatement(sql);
+            preparedStatement.setString(1, keyword); // Đặt tham số tìm kiếm
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String wordTarget = resultSet.getString("word_target");
+                String Pronunciation = resultSet.getString("pronunciation");
+                String wordType = resultSet.getString("word_type");
+                String wordExplain = resultSet.getString("word_explain");
+
+                // Xây dựng chuỗi kết quả
+                searchResult =  wordTarget +"\n" + Pronunciation +"\n" + wordType +"\n" +  wordExplain;
+            } else {
+                // Không có kết quả nào được tìm thấy
+                searchResult = "Không tìm thấy kết quả.";
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            connectionBase.closeConnection();
+        }
+
+        return searchResult;
+
+
     }
 
     /**
@@ -340,59 +377,59 @@ public class DictionaryManagement {
     /**
      * Translate word using Google Translate API.
      */
-    public void translateAPI() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the destination language (default: Vietnamese): ");
-        String destLang = scanner.nextLine();
-
-        System.out.print("Enter the source language (default: English): ");
-        String srcLang = scanner.nextLine();
-
-        destLang = destLang.isEmpty() ? "vi" : destLang;
-        srcLang = srcLang.isEmpty() ? "en" : srcLang;
-
-        System.out.print("Enter the word to translate: ");
-        String word = scanner.nextLine();
-
-        if (word.isEmpty()) {
-            System.out.println("Please enter a word to translate.");
-            return;
-        }
-
-        GGTranAPI ggTranAPI = new GGTranAPI();
-        Translator.TranslatedData result = ggTranAPI.translate(
-                            Translator.LanguageCode.valueOf(srcLang.toUpperCase()),
-                            Translator.LanguageCode.valueOf(destLang.toUpperCase()),
-                            word);
-
-        System.out.println("Text: " + result.getText());
-        System.out.println("Translation: " + result.getTranslated());
-        System.out.println("Source Language: " + result.getSrc());
-        System.out.println("Destination Language: " + result.getDest());
-
-        System.out.println("Press 's' to swap, 'l' to listen");
-        char choice = scanner.nextLine().charAt(0);
-
-        switch (choice) {
-            case 's':
-                String temp = srcLang;
-                srcLang = destLang;
-                destLang = temp;
-                result = ggTranAPI.translate(
-                        Translator.LanguageCode.valueOf(srcLang.toUpperCase()),
-                        Translator.LanguageCode.valueOf(destLang.toUpperCase()),
-                        word);
-
-                System.out.println("Text: " + result.getText());
-                System.out.println("Translation: " + result.getTranslated());
-                System.out.println("Source Language: " + result.getSrc());
-                System.out.println("Destination Language: " + result.getDest());
-                break;
-            case 'l':
-                read(word);
-        }
-    }
+//    public void translateAPI() {
+//        Scanner scanner = new Scanner(System.in);
+//
+//        System.out.print("Enter the destination language (default: Vietnamese): ");
+//        String destLang = scanner.nextLine();
+//
+//        System.out.print("Enter the source language (default: English): ");
+//        String srcLang = scanner.nextLine();
+//
+//        destLang = destLang.isEmpty() ? "vi" : destLang;
+//        srcLang = srcLang.isEmpty() ? "en" : srcLang;
+//
+//        System.out.print("Enter the word to translate: ");
+//        String word = scanner.nextLine();
+//
+//        if (word.isEmpty()) {
+//            System.out.println("Please enter a word to translate.");
+//            return;
+//        }
+//
+//        GGTranAPI ggTranAPI = new GGTranAPI();
+//        Translator.TranslatedData result = ggTranAPI.translate(
+//                            Translator.LanguageCode.valueOf(srcLang.toUpperCase()),
+//                            Translator.LanguageCode.valueOf(destLang.toUpperCase()),
+//                            word);
+//
+//        System.out.println("Text: " + result.getText());
+//        System.out.println("Translation: " + result.getTranslated());
+//        System.out.println("Source Language: " + result.getSrc());
+//        System.out.println("Destination Language: " + result.getDest());
+//
+//        System.out.println("Press 's' to swap, 'l' to listen");
+//        char choice = scanner.nextLine().charAt(0);
+//
+//        switch (choice) {
+//            case 's':
+//                String temp = srcLang;
+//                srcLang = destLang;
+//                destLang = temp;
+//                result = ggTranAPI.translate(
+//                        Translator.LanguageCode.valueOf(srcLang.toUpperCase()),
+//                        Translator.LanguageCode.valueOf(destLang.toUpperCase()),
+//                        word);
+//
+//                System.out.println("Text: " + result.getText());
+//                System.out.println("Translation: " + result.getTranslated());
+//                System.out.println("Source Language: " + result.getSrc());
+//                System.out.println("Destination Language: " + result.getDest());
+//                break;
+//            case 'l':
+//                read(word);
+//        }
+//    }
     public void read(String word){
         String data = new LabanSpeakerAPI().speak(word).getData();
         PlaySound playSound = new PlaySound(data);
