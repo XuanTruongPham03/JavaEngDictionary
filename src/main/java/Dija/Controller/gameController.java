@@ -16,8 +16,6 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class gameController implements Initializable {
-    private AnimationTimer game;
-
     @FXML
     private Button topLeft;
     @FXML
@@ -46,6 +44,7 @@ public class gameController implements Initializable {
     private boolean isAnswered;
     private final int scoreEach = 10;
     private final int maxQues = 10;
+    private AnimationTimer game;
     private List<Question> listQuestions = new ArrayList<Question>();
 
     private Random random = new Random();

@@ -1,0 +1,285 @@
+<mxfile host="app.diagrams.net" modified="2023-11-29T17:42:32.996Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="7IDGUTHDM3_pysb9MUSx" version="22.1.4" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="5595" dy="1133" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--0" target="93tSsWEYSZ6YFgdvvjHX-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" value="gameController" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-520" y="1020" width="240" height="450" as="geometry">
+            <mxRectangle x="220" y="120" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--2" value="- topLeft: Button&#xa;- botLeft: Button&#xa;- topRight: Button&#xa;- botRight: Button&#xa;- question: TextArea&#xa;- alert: Label&#xa;- textScore: Label&#xa;- endGame: AnchorPane&#xa;- yes: Button&#xa;- no: Button&#xa;- answer: String&#xa;- chooseAns: String&#xa;- score: int&#xa;- count: int &#xa;- isAnswered: boolean&#xa;- scoreEach: int &#xa;- maxQues: int&#xa;- game: AnimationTimer&#xa;- listQuestion: ArrayList&lt;Question&gt;&#xa;- random: Random&#xa;- connectionBase: MySqlConnectionBase&#xa;- sql: String" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;strokeColor=default;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="26" width="240" height="314" as="geometry" />
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-12" value="+ initialize(URL, ResourceBoudle): void&lt;br&gt;+ load(): void&lt;br&gt;+ run(): void&lt;br&gt;+ showAlert(): void&lt;br&gt;+ takeAllQues(): void&lt;br&gt;+ checkAns(): boolean&lt;br&gt;+ setQuestion(): void" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="340" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-13" value="MySQLConnectionBase" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-80" y="1920" width="175" height="150" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-14" value="- connection: Connection&lt;br&gt;    - url: String&lt;br&gt;    - user: String&lt;br&gt;    - password: String&lt;br&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" parent="93tSsWEYSZ6YFgdvvjHX-13" vertex="1">
+          <mxGeometry y="26" width="175" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-15" value="+ getConnection(): Connection&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ MySqlConnectionBase()&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ closeConnection(): void&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="93tSsWEYSZ6YFgdvvjHX-13" vertex="1">
+          <mxGeometry y="96" width="175" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-16" value="Question" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-130" y="1430" width="290" height="230" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-19" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- ques: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- ansA: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- ansB: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- ansC: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- ansD: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- answer: String&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="93tSsWEYSZ6YFgdvvjHX-16" vertex="1">
+          <mxGeometry y="26" width="290" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-20" value="+ Question(String, String, String, String, String, String)&lt;br&gt;+ getAnsA(): String&lt;br&gt;+ getAnsB(): String&lt;br&gt;+ getAnsC(): String&lt;br&gt;+ getAnsD(): String&lt;br&gt;+ getAnswer(): String&lt;br&gt;+ getQues(): String" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="93tSsWEYSZ6YFgdvvjHX-16" vertex="1">
+          <mxGeometry y="120" width="290" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="93tSsWEYSZ6YFgdvvjHX-26" value="&lt;interface&gt;&#xa;Initialize" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-870" y="1510" width="170" height="40" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.001;exitY=0.992;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-580" y="1668" as="sourcePoint" />
+            <mxPoint x="-910" y="1770" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-580" y="1669" />
+              <mxPoint x="-910" y="1669" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-700" y="1550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-650" y="1653" />
+              <mxPoint x="-650" y="1550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-0" value="&lt;b&gt;&lt;i&gt;add_update_delateWord&lt;/i&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-580" y="1500" width="280" height="306" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-1" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- dictionaryManagement: DictionaryManagement&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- root: AnchorPane&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-&amp;nbsp;wordTargetField : TextField&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-&amp;nbsp;wordExplainField: TextField&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- wordTypeField: ComboBox&amp;lt;String&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-&amp;nbsp;pronunciationField&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;: TextField&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- clearBtn: Button&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- addBtn: Button&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- delateBtn: Button&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- updateBth: Button&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=1;points=[];autosize=1;strokeColor=default;fillColor=none;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-0">
+          <mxGeometry y="26" width="280" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-2" value="+&amp;nbsp;add_update_delateWord()&lt;br&gt;+ initialize(URL, ResourceBundle): void&lt;br&gt;+ clearField(): void&lt;br&gt;+&amp;nbsp;addWordHandler(): void&lt;br&gt;+ Clear( ActionEvent): void&lt;br&gt;+&amp;nbsp;delateWordHandler(): void&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+&amp;nbsp;&lt;/span&gt;updateWordHandler(): void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-0">
+          <mxGeometry y="186" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-3" value="DictionaryCommandline" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="290" y="1660" width="270" height="160" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-5" value="- MENU_OPTIONS: String[]&lt;br&gt;    - dictionaryManagement: DictionaryManagement&lt;br&gt;    - scanner: Scanner" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-3">
+          <mxGeometry y="26" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-6" value="+ DictionaryCommandline()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ run(): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ displayMenu(): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ getOption(): int&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ handleOption(option: int): void&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-3">
+          <mxGeometry y="86" width="270" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-11" value="DictionaryManagement" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-100" y="1010" width="270" height="330" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-13" value="- dictionary: Dictionary&lt;br&gt;    - scanner: Scanner&lt;br&gt;    - displayPageSize: int&lt;br&gt;    - searchPageSize: int&lt;br&gt;+ wordTaget: String&lt;br&gt;- speakerData: SpeakerData&lt;br&gt;- speaker: Speaker" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-11">
+          <mxGeometry y="26" width="270" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-14" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ addWord(String, String, String, String): void&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ removeWord(String): void&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ updateWord(String, String, String, String): void&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ getWordsAsStringList(): List&amp;lt;String&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ dictionaryLookup(): void&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ dictionarySearcher(String): void&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ dictionaryGame(): void&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ importFromFile(): void&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span style=&quot;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ exportToFile(): void&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ dictionarySeach(String): void&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ displayWords(): void&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ read(String): void&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-11">
+          <mxGeometry y="136" width="270" height="194" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-15" target="93tSsWEYSZ6YFgdvvjHX-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-15" value="mainController" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1150" y="1060" width="240" height="300" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-17" value="- closeBtn: Button&lt;br&gt;- display_lookup-searh: Button&lt;br&gt;- Google_Translate: Button&lt;br&gt;- add_updare_delateWord: Button&lt;br&gt;- gameBtn: Button&lt;br&gt;- container: AnchorPane&lt;br&gt;- tooltip1: Tooltip&lt;br&gt;- tooltip2: Tooltip&lt;br&gt;- tooltip3: Tooltip&lt;br&gt;- tooltip10: Tooltip" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-15">
+          <mxGeometry y="26" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-18" value="+ mainController()&lt;br&gt;+ showCompoment(String): void&lt;br&gt;- setNode(Node): void&lt;br&gt;- dispaly_lookup_searh(MouseEvent): void&lt;br&gt;+ Google_TranslateI(MouseEvent): void&lt;br&gt;+ initialize(URL, ResourceBundle): void&lt;br&gt;+ add_update_delate(MouseEvent): void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-15">
+          <mxGeometry y="186" width="240" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-19" target="2WtMNP9lkapP9WCY4rGo-53">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-860" y="1860" />
+              <mxPoint x="-958" y="1860" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-810" y="1551" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-810" y="1560" />
+              <mxPoint x="-810" y="1560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-64" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2WtMNP9lkapP9WCY4rGo-63">
+          <mxGeometry x="-0.9025" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-19" value="Google_Translate" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-920" y="1890" width="220" height="170" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-20" value="- wordTarget2: ComboBox&amp;lt;String&amp;gt;&lt;br&gt;- wordTarget1: ComboBox&amp;lt;String&amp;gt;&lt;br&gt;- textArea1: TextArea&lt;br&gt;- textArea2: TextArea&lt;br&gt;- translateBtn: Button" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-19">
+          <mxGeometry y="26" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-21" value="+ Google_Translate()&lt;br&gt;+ translateHandler(): void&lt;br&gt;+ initialize(URL, ResourceBundle): void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-19">
+          <mxGeometry y="116" width="220" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-22" target="2WtMNP9lkapP9WCY4rGo-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-22" target="93tSsWEYSZ6YFgdvvjHX-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-22" value="&lt;b&gt;&lt;i&gt;display_lookup_searh&lt;/i&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1260" y="1410" width="270" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-23" value="&lt;div style=&quot;&quot;&gt;- searchResultsList: ObservableList&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- taskSearh: TextView&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- homeListView: ListView&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- searhresult: TextArea&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- searhBth: Button&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- root: AnchorPane&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- displayBtn: Button&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- dictionaryManagement: DictionaryManagement&lt;/div&gt;&lt;div style=&quot;&quot;&gt;- VoiceBtn: Button&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=1;points=[];autosize=1;strokeColor=default;fillColor=none;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-22">
+          <mxGeometry y="26" width="270" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-24" value="&lt;span style=&quot;border-color: var(--border-color); text-align: center;&quot;&gt;&lt;span style=&quot;border-color: var(--border-color);&quot;&gt;+ display_lookup_searh()&lt;br&gt;+ SearhHandler(): void&lt;br&gt;+ displayHandler(): void&lt;br&gt;+ initialize(URL, ResourceBundle): void&lt;br&gt;+ VoiceHandler(): void&lt;br&gt;&lt;/span&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-22">
+          <mxGeometry y="166" width="270" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-25" value="Word" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="290" y="1290" width="200" height="280" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-26" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- wordTarget: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- wordExplain: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- pronunciation: String&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- wordType: String&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-25">
+          <mxGeometry y="26" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-28" value="+ Word(String, String, String, String)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ Word(String, String)&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ Word()&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ getWordTarget(): String&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ getWordExplain(): String&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ getPronunciation(): String&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ getWordType(): String&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ setWordTarget(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ setWordExplain(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ setPronunciation(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ setWordType(String): void&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-25">
+          <mxGeometry y="96" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-27" value="1" style="resizable=0;align=right;verticalAlign=bottom;labelBackgroundColor=none;fontSize=12;" connectable="0" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-367.23076923076906" y="1108.2307692307693" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-29" value="&lt;b&gt;&lt;i&gt;Dictionary&lt;/i&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="1020" width="230" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-30" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- words: ArrayList&amp;lt;Word&amp;gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-29">
+          <mxGeometry y="26" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-31" value="+ Dictionary()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ addWord(Word): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ removeWord(Word): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ getAllWords(): ArrayList&amp;lt;Word&amp;gt;&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ size(): int&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ isEmpty(): boolean&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ isWordExistInDatabase(String): boolean&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-29">
+          <mxGeometry y="56" width="230" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-32" value="Game1" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-100" y="1760" width="240" height="100" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-33" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- connectionBase: MySqlConnectionBase&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- sql: String&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-32">
+          <mxGeometry y="26" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-34" value="+ Game1()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ Game(): void&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-32">
+          <mxGeometry y="66" width="240" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-35" value="ImportFile" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1490" y="1250" width="240" height="130" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-36" value="- connectionBase: MySqlConnectionBase" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-35">
+          <mxGeometry y="26" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-37" value="+ ImportFile()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ importFromUrl(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ importFromFile(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ importFile(): void&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-35">
+          <mxGeometry y="56" width="240" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-38" value="ExportFile" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1730" y="1250" width="230" height="160" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-39" value="- connectionBase: MySqlConnectionBase" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=default;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-38">
+          <mxGeometry y="26" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-40" value="+ ExportFile()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ exportToCSV(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ exportToTXT(String, String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ exportToXLSX(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ exportToSQL(String): void&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;span style=&quot;&quot;&gt;+ exportFile(String, String, String): void&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-38">
+          <mxGeometry y="56" width="230" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-42" target="2WtMNP9lkapP9WCY4rGo-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-42" value="LabanSpeakerAPI" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1580" y="1810" width="330" height="66" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-43" value="+ speak(String, Accent): SpeakerData&lt;br&gt;    + main(args: String[]): void" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-42">
+          <mxGeometry y="26" width="330" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-44" value="&lt;interface&gt;&#xa;Speaker" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1515" y="1700" width="200" height="40" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-45" value="Translator" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1600" y="1940" width="230" height="70" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-46" value="+ main(String[]): void&lt;br&gt;+ translate(String, String, String): String" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-45">
+          <mxGeometry y="26" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-48">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1492.5" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-48" value="Main" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1580" y="1100" width="175" height="66" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-49" value="+ main(String[]): void&lt;br&gt;+ start(Stage): void" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-48">
+          <mxGeometry y="26" width="175" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-50" value="Application" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=20;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1580" y="1000" width="175" height="20" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-51" value="Config" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1620" y="1510" width="160" height="70" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-52" value="+ GOOGLE_API: String&lt;br&gt;+ LABAN_API: String" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-51">
+          <mxGeometry y="26" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-53" value="AnchorPane" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-1100" y="1740" width="190" height="30" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-65" value="DictionaryController" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-800" y="1140" width="230" height="56" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-68" value="+ initialize(URL, ResourceBundle): void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="2WtMNP9lkapP9WCY4rGo-65">
+          <mxGeometry y="26" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2WtMNP9lkapP9WCY4rGo-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="2WtMNP9lkapP9WCY4rGo-68" target="93tSsWEYSZ6YFgdvvjHX-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

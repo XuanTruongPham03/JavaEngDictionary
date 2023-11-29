@@ -40,28 +40,4 @@ public class Question {
     public String getQues() {
         return ques;
     }
-
-    public void setAnsA(String ansA) {
-        this.ansA = ansA;
-    }
-
-    public void setAnsB(String ansB) {
-        this.ansB = ansB;
-    }
-
-    public void setAnsC(String ansC) {
-        this.ansC = ansC;
-    }
-
-    public void setAnsD(String ansD) {
-        this.ansD = ansD;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public void setQues(String ques) {
-        this.ques = ques;
-    }
 }
