@@ -25,6 +25,7 @@ public class DictionaryManagement {
     private Scanner scanner;
     private int displayPageSize = 10;
     private int searchPageSize = 10;
+    public String wordTarget;
 
     public DictionaryManagement() {
         dictionary = new Dictionary();
@@ -274,73 +275,29 @@ public class DictionaryManagement {
     /**
      * Search words in dictionary database
      */
-    public void dictionarySearcher() {
-        System.out.print("Enter a keyword to search: ");
-        String keyword = scanner.nextLine();
-
+    public List<String> dictionarySearcher(String keyword) {
+        List<String> searchResults = new ArrayList<>();
         MySqlConnectionBase connectionBase = new MySqlConnectionBase();
-        String sql = "SELECT * FROM dictionary WHERE word_target LIKE ? LIMIT ?, ?";
-
-        int pageNumber = 1;
-        int pageSize = searchPageSize;
-        int offset = 0;
-        int resultNumber = 1;
+        String sql = "SELECT word_target, word_explain FROM dictionary WHERE word_target LIKE ?";
 
         try {
             PreparedStatement preparedStatement = connectionBase.getConnection().prepareStatement(sql);
             preparedStatement.setString(1, "%" + keyword + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            ResultSet resultSet;
-
-            int resultCount = 0;
-
-            do {
-                preparedStatement.setInt(2, offset);
-                preparedStatement.setInt(3, pageSize);
-                resultSet = preparedStatement.executeQuery();
-
-                while (resultSet.next()) {
-                    String wordTarget = resultSet.getString("word_target");
-                    String pronunciation = resultSet.getString("pronunciation");
-                    String wordType = resultSet.getString("word_type");
-                    String wordExplain = resultSet.getString("word_explain");
-
-                    // Hiển thị kết quả theo định dạng "1. word_target - pronunciation - word_type - word_explain"
-                    System.out.printf("%d. %s - %s - %s - %s%n", resultNumber, wordTarget, pronunciation, wordType, wordExplain);
-                    resultNumber++;
-
-                    resultCount++;
-                }
-
-                if (resultCount == 0) {
-                    System.out.println("No matching words found.");
-                    break;
-                }
-
-                if (resultCount % searchPageSize == 0) {
-                    System.out.println("Press Enter to continue or enter 'q' to quit:");
-                    String input = scanner.nextLine();
-                    if (input.equals("q")) {
-                        break;
-                    }
-                    pageNumber++;
-                    offset = (pageNumber - 1) * pageSize;
-                } else {
-                    break; // Không còn kết quả để hiển thị
-                }
-            } while (true);
-
-            if (resultCount > 0) {
-                System.out.printf("Found %d matching word(s).%n", resultCount);
+            while (resultSet.next()) {
+                String wordTarget = resultSet.getString("word_target");
+                String wordExplain = resultSet.getString("word_explain");
+                searchResults.add(wordTarget + " - " + wordExplain); // định dạng kết quả
             }
-
             resultSet.close();
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            connectionBase.closeConnection();
         }
-
-        connectionBase.closeConnection();
+        return searchResults;
     }
 
     /**
@@ -452,8 +409,12 @@ public class DictionaryManagement {
 
         @Override
         public void run() {
-            AudioClip audioClip = new AudioClip(url);
-            audioClip.play();
+            try {
+                AudioClip audioClip = new AudioClip(url);
+                audioClip.play();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

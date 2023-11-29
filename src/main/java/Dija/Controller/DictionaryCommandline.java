@@ -104,13 +104,13 @@ public class DictionaryCommandline {
             /*case 3:
                 dictionaryManagement.updateWord();
                 break;*/
-            case 4:
+          /*  case 4:
                 dictionaryManagement.displayWords();
-                break;
-            case 5:
+                break;*/
+         /*   case 5:
                 dictionaryManagement.dictionaryLookup();
-                break;
-            case 6:
+                break;*/
+/*            case 6:
                 dictionaryManagement.dictionarySearcher();
                 break;
             case 7:
@@ -127,7 +127,7 @@ public class DictionaryCommandline {
                 break;
             default:
                 System.out.println("Action not supported");
-                break;
+                break;*/
         }
     }
 }

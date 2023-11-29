@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Game1 {
     MySqlConnectionBase connectionBase = new MySqlConnectionBase();
-    String sql = "SELECT * FROM game ";
+    String sql = "SELECT * FROM game";
     public Game1(){
 
     }
