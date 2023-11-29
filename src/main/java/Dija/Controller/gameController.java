@@ -1,22 +1,23 @@
 package Dija.Controller;
 
 import Dija.Services.MySQLConnection.*;
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class gameController implements Initializable {
+    private AnimationTimer game;
+
     @FXML
     private Button topLeft;
     @FXML
@@ -27,10 +28,27 @@ public class gameController implements Initializable {
     private Button botRight;
     @FXML
     private TextArea question;
+    @FXML
+    private Label alert;
+    @FXML
+    private Label textScore;
+    @FXML
+    private AnchorPane endGame;
+    @FXML
+    private Button yes;
+    @FXML
+    private Button no;
 
     private String answer;
     private String chooseAns;
+    private int score;
+    private int count;
+    private boolean isAnswered;
+    private final int scoreEach = 10;
+    private final int maxQues = 10;
     private List<Question> listQuestions = new ArrayList<Question>();
+
+    private Random random = new Random();
 
 
     MySqlConnectionBase connectionBase = new MySqlConnectionBase();
@@ -38,25 +56,84 @@ public class gameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        load();
+        game = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                run();
+            }
+        };
+
         topLeft.setOnMouseClicked(e -> {
             chooseAns = "a";
-            System.out.println("a");
         });
         botLeft.setOnMouseClicked(e -> {
             chooseAns = "c";
-            System.out.println("c");
         });
         topRight.setOnMouseClicked(e -> {
             chooseAns = "b";
-            System.out.println("b");
         });
         botRight.setOnMouseClicked(e -> {
             chooseAns = "d";
-            System.out.println("d");
+        });
+
+        yes.setOnMouseClicked(e -> {
+            load();
+            setQuestion();
+            game.start();
+        });
+        no.setOnMouseClicked(e -> {
+            yes.setVisible(false);
+            no.setVisible(false);
         });
 
         takeAllQues();
         setQuestion();
+        game.start();
+    }
+
+    private void load() {
+        chooseAns = "";
+        score = 0;
+        isAnswered = false;
+        count = 0;
+        textScore.setText(String.valueOf(score));
+        endGame.setVisible(false);
+    }
+
+    private void run() {
+        if (isAnswered) {
+            showAlert();
+        }
+
+        if (!chooseAns.isEmpty()) {
+            if (checkAns()) {
+                score += scoreEach;
+                alert.setText("Correct!");
+            } else {
+                alert.setText("Incorrect!");
+            }
+            textScore.setText(String.valueOf(score));
+            chooseAns = "";
+            isAnswered = true;
+            count ++;
+        }
+
+        if (count == maxQues) {
+            game.stop();
+            endGame.setVisible(true);
+        }
+    }
+
+    private void showAlert() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        alert.setText("");
+        setQuestion();
+        isAnswered = false;
     }
 
     private void takeAllQues(){
@@ -79,14 +156,20 @@ public class gameController implements Initializable {
         }
     }
 
+    private boolean checkAns() {
+        if (chooseAns.equals(answer)) {
+            return true;
+        }
+        return false;
+    }
+
     private void setQuestion() {
-        Random random = new Random();
         int index = random.nextInt(100000) % listQuestions.size();
         question.setText(listQuestions.get(index).getQues());
-        topLeft.setText(listQuestions.get(index).getAnsA());
-        botLeft.setText(listQuestions.get(index).getAnsC());
-        topRight.setText(listQuestions.get(index).getAnsB());
-        botRight.setText(listQuestions.get(index).getAnsD());
+        topLeft.setText("A: " + listQuestions.get(index).getAnsA());
+        botLeft.setText("B: " + listQuestions.get(index).getAnsC());
+        topRight.setText("C: " + listQuestions.get(index).getAnsB());
+        botRight.setText("D: " + listQuestions.get(index).getAnsD());
         answer = listQuestions.get(index).getAnswer();
     }
 }

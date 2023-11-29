@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="850.0" styleClass="root" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dija.Controller.mainController">
+<AnchorPane prefHeight="600.0" prefWidth="850.0" styleClass="root" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dija.Controller.mainController">
    <children>
       <AnchorPane fx:id="container" layoutX="92.0" layoutY="-1.0" prefHeight="600.0" prefWidth="757.0" styleClass="container" />
       <Button fx:id="add_update_delateWord" layoutX="21.0" layoutY="27.0" mnemonicParsing="false">
@@ -38,86 +36,14 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="21.0" layoutY="137.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="16.0">
+      <Button  fx:id="gameBtn" layoutX="21.0" layoutY="137.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="16.0">
          <tooltip>
-            <Tooltip fx:id="tooltip3" text="Name1" />
+            <Tooltip fx:id="tooltip3" text="Game" />
          </tooltip>
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="21.0" layoutY="189.0" mnemonicParsing="false">
-         <tooltip>
-            <Tooltip fx:id="tooltip4" text="Name1" />
-         </tooltip>
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="21.0" layoutY="246.0" mnemonicParsing="false">
-         <tooltip>
-            <Tooltip fx:id="tooltip5" text="Name1" />
-         </tooltip>
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="21.0" layoutY="299.0" mnemonicParsing="false">
-         <tooltip>
-            <Tooltip fx:id="tooltip6" text="Name1" />
-         </tooltip>
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="21.0" layoutY="360.0" mnemonicParsing="false">
-         <tooltip>
-            <Tooltip fx:id="tooltip7" text="Name1" />
-         </tooltip>
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="21.0" layoutY="415.0" mnemonicParsing="false">
-         <tooltip>
-            <Tooltip fx:id="tooltip8" text="Name1" />
-         </tooltip>
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="gameBtn" layoutX="21.0" layoutY="466.0" mnemonicParsing="false">
-         <tooltip>
-            <Tooltip fx:id="tooltip9" text="Name1" />
-         </tooltip>
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@text.png" />
+                  <Image url="@../gameicon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -129,7 +55,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@text.png" />
+                  <Image url="@../close.png" />
                </image>
             </ImageView>
          </graphic>

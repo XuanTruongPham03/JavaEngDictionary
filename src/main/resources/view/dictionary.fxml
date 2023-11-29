@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="757.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dija.Controller.dictionaryController">
+<AnchorPane prefHeight="600.0" prefWidth="757.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dija.Controller.dictionaryController">
    <children>
       <TextField alignment="CENTER" editable="false" layoutX="206.0" layoutY="31.0" prefHeight="74.0" prefWidth="434.0" styleClass="dicTitle" text="DIJA DICTIONARY APP" />
-      <TextField layoutX="311.0" layoutY="164.0" styleClass="feature" text="- Add word" />
+      <TextField layoutX="311.0" layoutY="157.0" styleClass="feature" text="- Add word" />
       <TextField layoutX="311.0" layoutY="124.0" prefHeight="43.0" prefWidth="223.0" styleClass="feature1" text="FEATURE :" />
-      <TextField layoutX="311.0" layoutY="324.0" styleClass="feature" text="- Search" />
-      <TextField layoutX="311.0" layoutY="284.0" styleClass="feature" text="- Display word" />
-      <TextField layoutX="311.0" layoutY="244.0" styleClass="feature" text="- Update word" />
-      <TextField layoutX="311.0" layoutY="204.0" styleClass="feature" text="- Remove word" />
-      <TextField layoutX="311.0" layoutY="484.0" styleClass="feature" text="- Google Translate" />
-      <TextField layoutX="311.0" layoutY="524.0" styleClass="feature" text="- Game" />
-      <TextField layoutX="311.0" layoutY="444.0" styleClass="feature" text="- Export to file" />
-      <TextField layoutX="311.0" layoutY="404.0" styleClass="feature" text="- Import from file" />
-      <TextField layoutX="311.0" layoutY="364.0" styleClass="feature" text="- Look up" />
+      <TextField layoutX="311.0" layoutY="289.0" styleClass="feature" text="- Search" />
+      <TextField layoutX="311.0" layoutY="257.0" styleClass="feature" text="- Display word" />
+      <TextField layoutX="311.0" layoutY="223.0" styleClass="feature" text="- Update word" />
+      <TextField layoutX="311.0" layoutY="190.0" styleClass="feature" text="- Remove word" />
+      <TextField layoutX="311.0" layoutY="415.0" styleClass="feature" text="- Google Translate" />
+      <TextField layoutX="311.0" layoutY="447.0" styleClass="feature" text="- Game" />
+      <TextField layoutX="311.0" layoutY="383.0" styleClass="feature" text="- Export to file" />
+      <TextField layoutX="311.0" layoutY="351.0" styleClass="feature" text="- Import from file" />
+      <TextField layoutX="311.0" layoutY="319.0" styleClass="feature" text="- Look up" />
    </children>
 </AnchorPane>

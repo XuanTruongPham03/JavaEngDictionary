@@ -16,11 +16,11 @@ import java.util.ResourceBundle;
 
 public class mainController implements Initializable {
     @FXML
-    private Button closeBtn,  gameBtn, add_update_delateWord,display_lookup_searh;
+    private Button closeBtn, gameBtn, add_update_delateWord,display_lookup_searh;
     @FXML
     private AnchorPane container;
     @FXML
-    private Tooltip tooltip1, tooltip2, tooltip3, tooltip4, tooltip5, tooltip6, tooltip7, tooltip8, tooltip9, tooltip10;
+    private Tooltip tooltip1, tooltip2, tooltip3, tooltip10;
 
     private void setNode(Node node) {
         container.getChildren().clear();
@@ -37,12 +37,6 @@ public class mainController implements Initializable {
         tooltip1.setShowDelay(Duration.seconds(0.3));
         tooltip2.setShowDelay(Duration.seconds(0.3));
         tooltip3.setShowDelay(Duration.seconds(0.3));
-        tooltip4.setShowDelay(Duration.seconds(0.3));
-        tooltip5.setShowDelay(Duration.seconds(0.3));
-        tooltip6.setShowDelay(Duration.seconds(0.3));
-        tooltip7.setShowDelay(Duration.seconds(0.3));
-        tooltip8.setShowDelay(Duration.seconds(0.3));
-        tooltip9.setShowDelay(Duration.seconds(0.3));
         tooltip10.setShowDelay(Duration.seconds(0.3));
         try {
             showComponent("/view/dictionary.fxml");

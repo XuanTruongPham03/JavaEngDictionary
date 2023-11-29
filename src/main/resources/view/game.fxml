@@ -2,13 +2,31 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dija.Controller.gameController">
    <children>
-      <Button fx:id="topLeft" layoutX="122.0" layoutY="264.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="topRight" layoutX="398.0" layoutY="264.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="botLeft" layoutX="122.0" layoutY="328.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="botRight" layoutX="398.0" layoutY="328.0" mnemonicParsing="false" text="Button" />
-      <TextArea fx:id="question" layoutX="184.0" layoutY="176.0" prefHeight="65.0" prefWidth="200.0" />
+      <Button fx:id="topLeft" layoutX="236.0" layoutY="264.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="topRight" layoutX="473.0" layoutY="264.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="botLeft" layoutX="236.0" layoutY="341.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="botRight" layoutX="473.0" layoutY="341.0" mnemonicParsing="false" text="Button" />
+      <TextArea fx:id="question" layoutX="184.0" layoutY="176.0" prefHeight="66.0" prefWidth="434.0" />
+      <AnchorPane fx:id="endGame" layoutX="288.0" layoutY="26.0" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="yes" layoutX="32.0" layoutY="121.0" mnemonicParsing="false" text="Yes" />
+            <Button fx:id="no" layoutX="135.0" layoutY="121.0" mnemonicParsing="false" text="No" />
+            <Label text="End Game!!!">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="41.0" prefHeight="66.0" prefWidth="74.0" text="Play Again?" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="textScore" layoutX="536.0" layoutY="36.0">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label fx:id="alert" layoutX="359.0" layoutY="305.0" prefHeight="26.0" prefWidth="73.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>
